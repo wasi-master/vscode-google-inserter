@@ -1,0 +1,131 @@
+{
+  "name": "google-inserter",
+  "author": "Wasi Master <arianmollik323@gmail.com> (https://wasi-master.github.io)",
+  "publisher": "WasiMaster",
+  "displayName": "Google Inserter",
+  "description": "Inserts google search results (including images) to files with a lot of formatting options including custom ones and ones for for specific languages",
+  "version": "0.0.1",
+  "icon": "logo.png",
+  "homepage": "https://wasi-master.github.io/vscode-google-inserter",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "bugs": {
+    "url": "https://github.com/wasi-master/vscode-google-inserter/issues",
+    "email": "arianmollik323@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wasi-master/vscode-google-inserter"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:google-inserter.searchAndInsertFromGoogle",
+    "onCommand:google-inserter.addApiKey",
+    "onCommand:google-inserter.removeApiKey"
+  ],
+  "main": "./dist/extension.js",
+  "keywords": [
+    "google",
+    "search",
+    "custom",
+    "insert",
+    "vscode"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "google-inserter.searchAndInsertFromGoogle",
+        "title": "Google Inserter: Search and Insert from Google"
+      },
+      {
+        "command": "google-inserter.addApiKey",
+        "title": "Google Inserter: Add an API Key"
+      },
+      {
+        "command": "google-inserter.removeApiKey",
+        "title": "Google Inserter: Remove API Key"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Google Inserter",
+        "properties": {
+          "google-inserter.format": {
+            "type": "string",
+            "default": "${title} - ${link}",
+            "markdownDescription": "Specify a custom format for the inserted content. [[docs]](https://wasi-master.github.io/google-inserter/formatting)",
+            "scope": "language-overridable"
+          },
+          "google-inserter.safe_search": {
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Specifies whether to use [safe search](https://support.google.com/websearch/answer/510) or not"
+          },
+          "google-inserter.search_language": {
+            "type": "string",
+            "default": "en",
+            "markdownDescription": "Limits the languages used to return results. This does not change the display language but the language of the websites returned. Enter a `ISO 639-1` 2 letter language code",
+            "pattern": "[A-Za-z]{2}"
+          },
+          "google-inserter.display_language": {
+            "type": "string",
+            "default": "en",
+            "markdownDescription": "Changes the interface language. This does not change the language of the websites. Enter a `ISO 639-1` 2 letter language code",
+            "pattern": "[A-Za-z]{2}"
+          },
+          "google-inserter.search_country": {
+            "type": "string",
+            "default": null,
+            "markdownDescription": "Limits the search results to pages/sites from certain locations. Enter a `ISO 3166` 2 letter country code",
+            "pattern": "([A-Za-z]{2})?"
+          },
+          "google-inserter.api_response_fields": {
+            "type": "string",
+            "default": null,
+            "markdownDescription": "The API response will only contain these fields. Useful for speed and to omit redundant data. [[syntax]](https://developers.google.com/custom-search/v1/performance#fields-syntax)"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "vsix": "vsce package",
+    "docs": "mkdocs serve",
+    "deploy-docs": "mkdocs gh-deploy",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/glob": "^7.2.0",
+    "@types/jest": "^27.4.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.13",
+    "@types/vscode": "^1.63.1",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "@vscode/test-electron": "^2.1.1",
+    "eslint": "^8.6.0",
+    "glob": "^7.2.0",
+    "mocha": "9.1.0",
+    "node-loader": "^2.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "lodash.template": "^4.5.0"
+  }
+}

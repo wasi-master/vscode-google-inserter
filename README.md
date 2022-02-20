@@ -1,9 +1,10 @@
 # vscode-google-inserter
- Inserts google search result snippets into html or markdown files ar hyperlinks or other formats
 
-# Setup
+Inserts google search result snippets into html or markdown files ar hyperlinks or other formats
 
-This needs an api key from google to retrieve results. To get the api key:
+## Setup
+
+This needs an api key from google to retrieve results<sup>[why?](https://wasi-master.github.io/vscode-google-inserter#why-need-an-api-key)</sup>. To get the api key:
 
 Go to [Google Custom Search overview page](https://developers.google.com/custom-search/v1/overview), scroll down, click get a key.
 ![get a key](https://mixedanalytics.com/blog/wp-content/uploads/google-search-api-img1.jpg)
