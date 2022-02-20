@@ -1,0 +1,64 @@
+site_name: Google Inserter
+site_url: https://wasi-master.github.io/vscode-google-inserter
+repo_name: wasi-master/vscode-google-inserter
+repo_url: https://github.com/wasi-master/vscode-google-inserter
+nav:
+  - Home: index.md
+  - Configuration: configuration.md
+  - Usage: usage.md
+  - Formatting: formatting.md
+  - Notes: notes.md
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - header.autohide
+    - toc.integrate
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+
+plugins:
+  - search
+
+markdown_extensions:
+  - meta
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.betterem
+  - pymdownx.keys
+  - pymdownx.caret
+
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wasi-master
+copyright: Copyright &copy; 2021 Arian Mollik Wasi
+
+edit_uri: ""
